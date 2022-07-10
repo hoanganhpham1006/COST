@@ -1,0 +1,45 @@
+EXPERIMENT: 'test'
+
+
+DIRS:
+  INPUT_DIR: "input/"
+  TRAIN_QUESTION_PT: "train_full_questions_answers.pt"
+  VAL_QUESTION_PT: "valid_full_questions_answers.pt"
+  TEST_QUESTION_PT: "test_full_questions_answers.pt"
+  TEST_REF_JSON: "test_set4DSTC7-AVSD_multiref.json"
+  VOCAB_FILE: "vocab.json"
+  OBJECT_FEATURE_H5: "out_obj_8c22f_full.h5"
+  RESNET_FEATURE_H5: "out_res_8c22f_full.h5"
+  I3D_FEATURE_H5: "out_i3d_8c22f_full.h5"
+  MAP_ID_NAME: "map_id_name_8c22f_full.pkl"
+  WEIGHTS: "weights/"
+  LOGS: "logs/"
+  OUTPUTS: "outputs/"
+
+
+MODEL:
+  NUM_BLOCKS: 3
+  NUM_HEADS: 4
+  D_FF: 512
+  D_MODEL: 128
+  DROPOUT: 0.2
+  APP_FEAT: 2048
+  MOTION_FEAT: 2048
+  OBJ_APP_FEAT: 1024
+  TRAIN_WEIGHT_INIT: "xavier_uniform"
+  TRAIN_VAR_DROPOUT: False
+  TRAIN_CLIP_GRADS: False
+  AE_USE: True
+
+TRAIN:
+  EPOCHS: 30
+  BATCH_SIZE: 16
+
+OPT:
+  BASE_LR: 0.001
+  BERT_LR: 0.
+  OPTIMIZER: "adamw"
+  GD_STEPS: 1
+  WEIGHT_DECAY: 1e-4
+  EPS: 1e-6
+  WARMUP_EPOCHS: 0
